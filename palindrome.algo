@@ -1,35 +1,14 @@
-Function palindrome (input word <Array>, input i <Integer>, input j <Integer>) 
-returns <Boolean>
-Begin
-if i ≥ j then
-return (TRUE);
-else
-return (word[i] = word[j] and palindrome(word, i + 1, j – 1));
-end if;
-End
-
--- This function checks if the array 'word' is a palindrome or not
-Function palindrome (input word <Array>, input n <Integer>) returns <Boolean>
-Begin
-return (palindrome(word, 1, n));
-End
-
-FUNCTION palindrome (input word <Array>, input i <Integer>, input j <Integer>) returns <Boolean>
+FUNCTION palindrome(mot:STRING) : BOOLEAN
 VAR
-word : Array_of CHAR
-i , j : Integer
+resultat:BOOLEAN
 BEGIN
-IF (i >= j) THEN
-return (TRUE);
-ELSE
-return (word[i] = word[j] and palindrome(word, i + 1, j – 1));
-END_IF
-END
-
-FUNCTION palindrome (input word <Array>, input n <Integer>) returns <Boolean>
-VAR
-word : Array_of CHAR
-n : Integer
-BEGIN
-RETURN (palindrome(word, 1, n));
+    IF (mot.length<=1) THEN
+        RETURN true
+    END_IF
+    IF (mot[0]<>mot[mot.length]) THEN
+        RETURN false
+    END_IF
+    mot:=mot[1,mot.length-1]
+    relultat:=palindrome (mot)
+    RETURN palindrome
 END
